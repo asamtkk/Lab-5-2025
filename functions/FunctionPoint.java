@@ -59,7 +59,8 @@ public class FunctionPoint {
         if (o == null || getClass() != o.getClass()) return false;
 
         //сравниваем координаты x и y для корректного сравнения double
-        return Double.compare(this.x, ((FunctionPoint) o).x) == 0 && Double.compare(this.y, ((FunctionPoint) o).y) == 0;
+        return Math.abs(this.x - ((FunctionPoint) o).x) < 1e-10 &&
+                Math.abs(this.y - ((FunctionPoint) o).y) < 1e-10;
     }
 
     //переопределение метода для вычисления хэш-кода тчоки
